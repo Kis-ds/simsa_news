@@ -175,7 +175,7 @@ with data_space:
         plot_tree_df = plot_tree_df.sort_values(by='title', ascending=False).reset_index(drop=True)
         st.subheader('오늘의 이슈',
                          help="수집한 결과를 차트로 파악하기 쉽게 트리 차트로 도식화된 화면입니다.\n- 금일 기준 유의미하다고 판단된 기사를 업종(중분류기준)과 기업별로 도식화 하였습니다.\n- 각 업종과 기업별로 클릭하여 각 범위별 비중을 확인할 수 있습니다.\n- 다시 전체 리스트를 조회하고 싶다면 차트 상단의 짙은 남색부분을 클릭해주시면 됩니다. ")
-        st.write(f'현재 수집되고 있는 언론사를 대상으로 일별 수집된 기사 중 유의미하다고 판단된 기사는 총 {df.shape[0]}건 이며, 금일 수집된 주요 기사는 총 {df[df["date_string"] == TODAY_VAR].shape[0]}건 입니다.')
+        st.write(f'현재 관리 대상인 전체 391개의 기업 대상으로 수집된 기사 중 유의미하다고 판단된 기사(7일 기준)는 총 {df.shape[0]}건 이며, 금일 수집된 주요 기사는 총 {df[df["date_string"] == TODAY_VAR].shape[0]}건 입니다.')
         st.write(f'최근 주요 기사가 많이 발간된 기업은 **{plot_tree_df["업체명"][0]}**이며, {TODAY_VAR}일 기준 총 **{plot_tree_df["title"][0]}**건이 수집되었습니다.')
         ''
         ''
