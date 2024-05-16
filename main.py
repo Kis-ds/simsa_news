@@ -120,11 +120,12 @@ btm_mg = 20
 ####################################### data preprocessing #######################################
 
 # 여기 pickle로 바꿔서 다시 진행할것
-app = xw.App(visible = False)
-book = xw.Book('./data/upload.xlsx')
-origin = book.sheets(1).used_range.options(pd.DataFrame).value
-origin = origin.reset_index()
-app.kill()
+# app = xw.App(visible = False)
+# book = xw.Book('./data/upload.xlsx')
+# origin = book.sheets(1).used_range.options(pd.DataFrame).value
+# origin = origin.reset_index()
+# app.kill()
+origin = pd.read_excel('./data/upload.xlsx')
 
 df = origin[['date_string','input_list', 'title','link','업체명','그룹명', '대분류','중분류','summary','a_score', 'b_score', 'c_score', 'total_score']]
 df['date_string'] = (pd.to_datetime(df['date_string']).dt.strftime('%Y-%m-%d'))
