@@ -307,7 +307,7 @@ with data_space:
 
         st.subheader('조건별 전체 뉴스 조회하기',
                          help="각 조건별 전체 뉴스 목록을 조회하는 화면입니다. 옆에 있는 창(side bar)를 열어두시면 필요한 목록을 선택할 수 있습니다.")
-        dynamic_filters.display_df(height=500)
+        dynamic_filters.display_df(height=2000)
 
         # from streamlit_pills import pills
         #
