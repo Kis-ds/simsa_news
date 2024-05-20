@@ -277,9 +277,9 @@ with data_space:
                 unsafe_allow_html=True)
             st.markdown('<h3 style="text-align:center">   </h3>', unsafe_allow_html=True)
             df_pivot = df.groupby('date_string').apply(lambda x: pd.Series({
-                '산업및사업_지표': (x['a_score'] >= standard_value).sum(), #'산업'
-                '재무_지표': (x['b_score'] >= standard_value).sum(), # 사업
-                'EventRisk_지표': (x['c_score'] >= standard_value).sum().sum() # 재무
+                '산업지표': (x['a_score'] >= standard_value).sum(), #'산업'
+                '사업지표': (x['b_score'] >= standard_value).sum(), # 사업
+                'EventRisk_지표': (x['c_score'] >= standard_value).sum() 
             }))
 
             fig_amt = df_pivot.iplot(kind='bar', barmode='stack', asFigure=True, dimensions=(400, 400),
