@@ -307,7 +307,19 @@ with data_space:
 
         st.subheader('조건별 전체 뉴스 조회하기',
                          help="각 조건별 전체 뉴스 목록을 조회하는 화면입니다. 옆에 있는 창(side bar)를 열어두시면 필요한 목록을 선택할 수 있습니다.")
-        dynamic_filters.display_df(height=1500, hide_index=True)
+        dynamic_filters.display_df(height=1500, hide_index=True,
+                           column_config={
+                               "링크": st.column_config.LinkColumn("URL"),
+
+                               "총점": st.column_config.ProgressColumn(
+                                   "총점",
+                                   help="산업, 사업, 재무별 평가기준을 통해 부여된 점수의 총합 입니다.",
+                                   format="%f점",
+                                   min_value=0,
+                                   max_value=60,
+                                   ),
+                               }
+                        )
 
         # from streamlit_pills import pills
         #
