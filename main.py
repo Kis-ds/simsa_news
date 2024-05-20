@@ -207,7 +207,7 @@ with data_space:
         ### section 03. sub plot
 
         st.subheader('주별 이슈 현황',
-                         help="수집한 결과를 차트로 파악하기 쉽게 라인그래프와 막대그래프로 도식화한 화면입니다.\n- 산업별 뉴스 현황 : 7일간 전체 산업별(대분류 기준) 기사 발간 현황입니다.\n- 기준별 주요 뉴스 발간 현황 : 각 주요 평가 기준인 산업/ 사업/ 재무 중 기준값 이상으로 주요하다고 판단된 뉴스 동향입니다.")
+                         help="수집한 결과를 차트로 파악하기 쉽게 라인그래프와 막대그래프로 도식화한 화면입니다.\n- 산업별 뉴스 현황 : 7일간 전체 산업별(대분류 기준) 기사 발간 현황입니다.\n- 기준별 주요 뉴스 발간 현황 : 각 주요 평가 기준인 산업/ 사업/ 재무 중 기준값 이상으로 주요하다고 판단된 뉴스 동향입니다.\n  1) 산업 및 사업 평가 기준 : 업에 미치는 영향 분석(고려사항: 매출, 실적, 기술, 연구개발, 경쟁사, 시장지위 등의 변화 및 소송, 파업, 영업정지 등 개별 사업에 영향을 미칠 수 있는 사항)\n  2) 재무 지표 평가 기준 : 기업의 재무상태에 미치는 영향 분석(고려사항: 수익성, 이익률, 운전자본, CAPEX 투자, 부채비율, 자산건전성, 차입부담, 계열사 지원, 자금조달 등 개별기업의 재무안정성에 영향을 미칠 수 있는 사항)\n  3) Event Rist 지표 평가 기준 : 기업에서 발생할 수 있는 사업 및 이벤트 리스크 분석(배려사항: 경영권 분쟁, 기업결합, 합병, 최대주주 변경, 내부통제, 횡령, 배임, 매각, 파산, 영토분쟁 등 경영권에 영향을 미치는 사항)")
         company_chart, subject_chart = st.columns(2, gap="large")
         ##### CHAT01. 뉴스 주제별 PIE chat
 
@@ -277,9 +277,9 @@ with data_space:
                 unsafe_allow_html=True)
             st.markdown('<h3 style="text-align:center">   </h3>', unsafe_allow_html=True)
             df_pivot = df.groupby('date_string').apply(lambda x: pd.Series({
-                '산업': (x['a_score'] >= standard_value).sum(),
-                '사업': (x['b_score'] >= standard_value).sum(),
-                '재무': (x['c_score'] >= standard_value).sum().sum()
+                '산업및사업_지표': (x['a_score'] >= standard_value).sum(), #'산업'
+                '재무_지표': (x['b_score'] >= standard_value).sum(), # 사업
+                'EventRisk_지표': (x['c_score'] >= standard_value).sum().sum() # 재무
             }))
 
             fig_amt = df_pivot.iplot(kind='bar', barmode='stack', asFigure=True, dimensions=(400, 400),
