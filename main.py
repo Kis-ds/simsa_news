@@ -147,7 +147,7 @@ COMPANY_CNT = len(df.업체명.unique())
 dynamic_filters = DynamicFilters(df_plot, filters=['날짜', '산업', '분야', '계열', '기업명'])
 with st.sidebar:
     st.header('조건별 전체 기사 조회하기')
-    dynamic_filters.display_filters()
+    dynamic_filters.display_filters(gap="medium")
 
 
 ################ PART02. main page ################
