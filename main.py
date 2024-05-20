@@ -108,7 +108,7 @@ def map_color(value, sorted_values, colors):
 ####################################### web page style option #######################################
 st.set_page_config(
     layout="wide",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="expanded"#"collapsed"
 )
 
 # margin option
