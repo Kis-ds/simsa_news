@@ -309,7 +309,7 @@ with data_space:
                          help="각 조건별 전체 뉴스 목록을 조회하는 화면입니다. 옆에 있는 창(side bar)를 열어두시면 필요한 목록을 선택할 수 있습니다.")
         dynamic_filters.display_df(height=1500, hide_index=True,
                            column_config={
-                               "링크": st.column_config.LinkColumn("URL", display_text="링크바로가기"),
+                               "링크": st.column_config.LinkColumn("URL", display_text="바로가기"),
 
                                "총점": st.column_config.ProgressColumn(
                                    "총점",
