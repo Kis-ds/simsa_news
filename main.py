@@ -133,8 +133,8 @@ df['date_string'] = df['date_string'].astype(str)
 df['total_score'] = df['total_score'].astype(float)
 
 
-df_plot =df[['date_string', '대분류', '중분류', '그룹명', '업체명', 'title','total_score', 'link', 'summary']].copy()
-df_plot.columns =  ['날짜', '산업', '분야','계열명', '기업명', '기사제목','총점', '링크', '본문요약']
+df_plot =df[['date_string', '중분류', '그룹명', '업체명', 'title','total_score', 'link', 'summary']].copy()
+df_plot.columns =  ['날짜', '분야','계열명', '기업명', '기사제목','총점', '링크', '본문요약']
 
 TODAY_VAR = df.date_string.max()
 COMPANY_CNT = len(df.업체명.unique())
