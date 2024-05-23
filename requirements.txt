@@ -94,7 +94,6 @@ streamlit-aggrid==0.3.4.post3
 streamlit-antd-components==0.3.2
 streamlit-camera-input-live==0.2.0
 streamlit-card==0.0.61
-streamlit-dynamic-filters==0.1.6
 streamlit-elements==0.1.0
 streamlit-embedcode==0.1.2
 streamlit-extras==0.3.2
