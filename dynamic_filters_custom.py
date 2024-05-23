@@ -114,18 +114,18 @@ class DynamicFilters:
             if self.df[filter_name].dtype in ['int64', 'float64']:  # Check if column is int or float
                 min_val = self.df[filter_name].min()
                 max_val = self.df[filter_name].max()
-                selected_range = st.slider(f"Select range for {filter_name}",
+                selected_range = st.slider(f"'{filter_name}'의 범위를 지정해주세요.",
                                            min_value=min_val,
                                            max_value=max_val,
                                            value=(min_val, max_val))
                 st.session_state['slider_filters'][filter_name] = selected_range
             else:
                 if location == 'sidebar':
-                    selected = st.multiselect(f"Select {filter_name}", sorted(options),
+                    selected = st.multiselect(f" {filter_name} 필터를 선택해주세요.", sorted(options),
                                               default=st.session_state[self.filters_name][filter_name])
                 elif location == 'columns' and num_columns > 0:
                     with col_list[counter - 1]:
-                        selected = st.multiselect(f"Select {filter_name}", sorted(options),
+                        selected = st.multiselect(f" *{filter_name}* 필터를 선택해주세요.", sorted(options),
                                                   default=st.session_state[self.filters_name][filter_name])
 
                     # increase counter and reset to 1 if max_value is reached
@@ -134,7 +134,7 @@ class DynamicFilters:
                     if counter == 0:
                         counter = 1
                 else:
-                    selected = st.multiselect(f"Select {filter_name}", sorted(options),
+                    selected = st.multiselect(f" '{filter_name}' 필터를 선택해주세요.", sorted(options),
                                               default=st.session_state[self.filters_name][filter_name])
 
                 if selected != st.session_state[self.filters_name][filter_name]:
