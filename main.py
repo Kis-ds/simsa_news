@@ -119,12 +119,6 @@ btm_mg = 20
 
 ####################################### data preprocessing #######################################
 
-# 여기 pickle로 바꿔서 다시 진행할것
-# app = xw.App(visible = False)
-# book = xw.Book('./data/upload.xlsx')
-# origin = book.sheets(1).used_range.options(pd.DataFrame).value
-# origin = origin.reset_index()
-# app.kill()
 origin = pd.read_excel('./data/upload.xlsx')
 
 df = origin[['date_string', 'input_list', 'title', 'link', '업체명', '그룹명', '대분류', '중분류', 'summary', 'a_score', 'b_score',
@@ -168,7 +162,7 @@ with data_space:
     ''
     ''
     st.write(
-        f"다음은 금일 수집한 채권유니버스 소속 기업 관련 뉴스 리스트입니다. (조회일자 기준으로 최근 7일간의 기사를 확인하실 수 있습니다.)\n\n**{TODAY_VAR} 오전 6시 기준**으로 수집된 기사 목록입니다.")
+        f"다음은 금일 수집한 채권유니버스 소속 기업 관련 뉴스 리스트입니다. (조회일자 기준으로 최근 7일간의 기사를 확인하실 수 있습니다.)\n\n**{TODAY_VAR} 오전 8시 기준**으로 수집되었으며, 약 **10시 반에 업데이트된 기사를 조회**할 수 있습니다.")
     st.write()
     ''
     ''
